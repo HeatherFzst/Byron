@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Amarillas para Ti 🌻</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Flores Amarillas para Ti 🌻_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Partículas de estrellas y luz de fondo -->
+  <div id="stars-container"></div>
+  <canvas id="petals-canvas"></canvas>
+
+  <div class="container">
+    <!-- SECCIÓN IZQUIERDA: FLORES ANIMADAS -->
+    <div class="flowers-section">
+      <div class="flower-pot">
+        <svg viewBox="0 0 500 600" class="flower-svg" id="flowerSvg">
+          <defs>
+            <radialGradient id="sunflower-center" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#4a2306"></stop>
+              <stop offset="75%" stop-color="#281102"></stop>
+              <stop offset="100%" stop-color="#120701"></stop>
+            </radialGradient>
+
+            <linearGradient id="petal-grad-outer" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#FF9900"></stop>
+              <stop offset="40%" stop-color="#FFC700"></stop>
+              <stop offset="100%" stop-color="#FFF500"></stop>
+            </linearGradient>
+
+            <linearGradient id="petal-grad-inner" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#E68000"></stop>
+              <stop offset="50%" stop-color="#FFB700"></stop>
+              <stop offset="100%" stop-color="#FFFF33"></stop>
+            </linearGradient>
+
+            <linearGradient id="stem-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1E4620"></stop>
+              <stop offset="50%" stop-color="#388E3C"></stop>
+              <stop offset="100%" stop-color="#143316"></stop>
+            </linearGradient>
+
+            <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+            </filter>
+
+            <!-- CABEZA DE GIRASOL -->
+            <g id="sunflower-head-def">
+              <!-- Capa Externa de Pétalos -->
+              <g class="petals-layer-outer">
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(0)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(22.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(45)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(67.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(90)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(112.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(135)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(157.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(180)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(202.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(225)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(247.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(270)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(292.5)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(315)"></path>
+                <path d="M 0,0 C -12,-25 -10,-65 0,-85 C 10,-65 12,-25 0,0 Z" fill="url(#petal-grad-outer)" transform="rotate(337.5)"></path>
+              </g>
+
+              <!-- Capa Interna Intercalada -->
+              <g class="petals-layer-inner">
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(11.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(33.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(56.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(78.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(101.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(123.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(146.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(168.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(191.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(213.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(236.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(258.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(281.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(303.75)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(326.25)"></path>
+                <path d="M 0,0 C -10,-20 -8,-55 0,-72 C 8,-55 10,-20 0,0 Z" fill="url(#petal-grad-inner)" transform="rotate(348.75)"></path>
+              </g>
+
+              <!-- Centro del Girasol -->
+              <circle cx="0" cy="0" r="32" fill="url(#sunflower-center)" stroke="#FFD700" stroke-width="2.5"></circle>
+              <circle cx="0" cy="0" r="24" fill="none" stroke="#8B4513" stroke-dasharray="3,3" stroke-width="2" opacity="0.8"></circle>
+              <circle cx="0" cy="0" r="14" fill="none" stroke="#FFC700" stroke-dasharray="2,3" stroke-width="1.5" opacity="0.6"></circle>
+            </g>
+          </defs>
+
+          <!-- Tallo 1 (Flor Principal Centro) -->
+          <path d="M 250 600 Q 240 430 250 210" class="stem stem-1" stroke="url(#stem-grad)" stroke-width="14" fill="none" stroke-linecap="round"></path>
+          <!-- Hojas Tallo 1 -->
+          <g class="leaf-group leaf-left">
+            <path d="M 245 430 Q 160 400 130 440 Q 190 480 245 435" fill="#2E7D32" opacity="0.95"></path>
+          </g>
+          <g class="leaf-group leaf-right">
+            <path d="M 255 370 Q 340 340 370 380 Q 310 420 255 375" fill="#388E3C" opacity="0.95"></path>
+          </g>
+
+          <!-- Tallo 2 (Flor Izquierda) -->
+          <path d="M 250 600 Q 190 460 140 280" class="stem stem-2" stroke="url(#stem-grad)" stroke-width="10" fill="none" stroke-linecap="round"></path>
+          <g class="leaf-group leaf-left-2">
+            <path d="M 175 430 Q 105 420 85 460 Q 145 480 177 435" fill="#2E7D32" opacity="0.9"></path>
+          </g>
+
+          <!-- Tallo 3 (Flor Derecha) -->
+          <path d="M 250 600 Q 310 460 360 290" class="stem stem-3" stroke="url(#stem-grad)" stroke-width="10" fill="none" stroke-linecap="round"></path>
+          <g class="leaf-group leaf-right-2">
+            <path d="M 325 440 Q 395 430 415 470 Q 355 490 323 445" fill="#388E3C" opacity="0.9"></path>
+          </g>
+
+          <!-- FLOR 2 (Izquierda en (140, 280)) -->
+          <g transform="translate(140, 280)">
+            <g class="flower-head-animated flower-left">
+              <use href="#sunflower-head-def" transform="scale(0.75)"></use>
+            </g>
+          </g>
+
+          <!-- FLOR 3 (Derecha en (360, 290)) -->
+          <g transform="translate(360, 290)">
+            <g class="flower-head-animated flower-right">
+              <use href="#sunflower-head-def" transform="scale(0.75)"></use>
+            </g>
+          </g>
+
+          <!-- FLOR 1 (Principal Centro en (250, 210)) -->
+          <g transform="translate(250, 210)" filter="url(#glow)">
+            <g class="flower-head-animated flower-main">
+              <use href="#sunflower-head-def" transform="scale(1.1)"></use>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DERECHA: TARJETA DE MENSAJE -->
+    <div class="card-section">
+      <div class="message-card">
+        <h1 class="card-title">Flores Amarillas para Ti</h1>
+        
+        <div class="divider"></div>
+
+        <div class="message-content" id="messageText" contenteditable="true" title="¡Haz clic aquí para escribir tu mensaje!" spellcheck="false">Ten estas flores, como parte del amor que te tengo Dulce, perdón por los malos momentos que tenemos, pero aún así en todos esos momentos te sigo amando.</div>
+
+        <div class="card-footer">
+          <span class="signature">— Con todo mi cariño ❤️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
