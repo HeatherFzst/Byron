@@ -129,7 +129,10 @@ body {
   animation: bloomFlower 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, swayFlower 4s ease-in-out infinite alternate;
 }
 
-.flower-main { animation-delay: 1.8s, 3.0s; }
+.flower-main { 
+  animation-delay: 1.8s, 3.0s; 
+  filter: drop-shadow(0 0 15px rgba(255, 200, 0, 0.5));
+}
 .flower-left { animation-delay: 2.1s, 3.3s; }
 .flower-right { animation-delay: 2.4s, 3.6s; }
 
